@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.aviorsys.HRMS_pageobject.ContactAndFamilyPage&apos; to &apos;EmpContactAndFamilyPage&apos;&#x0D;&#x0A;- Original project: &apos;HRMS_pageobject&apos;&#x0D;&#x0A;- Original element: &apos;com.aviorsys.HRMS_pageobject.ContactAndFamilyPage&apos;&#x0D;&#x0A;- Renamed element: &apos;com.aviorsys.HRMS_pageobject.EmpContactAndFamilyPage&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ContactAndFamilyPage&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.aviorsys.HRMS_pageobject{ContactAndFamilyPage.java[ContactAndFamilyPage" matchStrategy="1" name="EmpContactAndFamilyPage" qualified="false" references="true" similarDeclarations="false" stamp="1595577983563" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.aviorsys.HRMS_pageobject.DashboardPage.java&apos; to &apos;NavigationPage.java&apos;&#x0D;&#x0A;- Original project: &apos;HRMS_pageobject&apos;&#x0D;&#x0A;- Original element: &apos;com.aviorsys.HRMS_pageobject.DashboardPage.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.aviorsys.HRMS_pageobject.NavigationPage.java&apos;" description="Rename compilation unit &apos;DashboardPage.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java&lt;com.aviorsys.HRMS_pageobject{DashboardPage.java" name="NavigationPage.java" references="false" stamp="1589221674500" version="1.0"/>
+</session>

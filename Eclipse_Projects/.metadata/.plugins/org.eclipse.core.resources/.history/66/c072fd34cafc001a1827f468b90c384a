@@ -1,0 +1,51 @@
+package com.aviorsys.HRMS_tests;
+
+import org.junit.Test;
+
+//import org.junit.Test;
+
+import com.aviorsys.HRMS_pageobject.ESSLeaveCancellationPage;
+
+public class ESSLeaveCancellationTest  extends BasicTestConfirm{
+	ESSLeaveCancellationPage CancelLeavefromESSPage;
+
+//@Test
+@Test
+public void test_a_ESS_Leave_Cancel() throws InterruptedException{
+	System.out.println("@Test a - Verify ESS Leave Cancel");
+	Thread.sleep(2000);
+	
+	//Create ESSLeavecancel Page object
+	 CancelLeavefromESSPage = new ESSLeaveCancellationPage(driver);
+	 
+	 CancelLeavefromESSPage.clickNavigationExpand();
+	 CancelLeavefromESSPage.clickMyProfile();
+	 CancelLeavefromESSPage.clickCancelLeave();
+	 CancelLeavefromESSPage.verifyLeavecancelationInterfaceHeader("Leave Cancellation");
+	 CancelLeavefromESSPage.enterFromDate("2020-09-01");
+	 CancelLeavefromESSPage.enterToDate("2020-09-30");
+	 CancelLeavefromESSPage.selectLeaveStatus();
+	 CancelLeavefromESSPage.chooseLeaveStatus();
+	 CancelLeavefromESSPage.clickLoad();
+	 CancelLeavefromESSPage.getTableValues();
+	 CancelLeavefromESSPage.clickEdit();
+	 CancelLeavefromESSPage.verifyLeaveTypeone();
+	 CancelLeavefromESSPage.verifyLeavecancelationPopupHeader("Cancel Leave Request");
+	 CancelLeavefromESSPage.verifyLeaveType("Work From Home");
+	 CancelLeavefromESSPage.verifyYear("2020");
+	 CancelLeavefromESSPage.verifyStartDate("2020/09/15");
+	 CancelLeavefromESSPage.verifyStartTime("Morning");
+	 CancelLeavefromESSPage.verifyEndDate("2020/09/15");
+	 CancelLeavefromESSPage.verifyEndTime("Evening");
+	 CancelLeavefromESSPage.verifyTotalDays("1");
+	 //CancelLeavefromESSPage.verifyCoverPerson("");
+	 //CancelLeavefromESSPage.verifyConfirmOfficer("Anuradhika Wijayathilake");
+	 CancelLeavefromESSPage.verifyReason("test");
+	 CancelLeavefromESSPage.verifyApprovOfficer("Nalaka Wimalaratne");
+	 CancelLeavefromESSPage.enterCancelReason("Testing Leave Cancellation Outomation");
+	 CancelLeavefromESSPage.verifyKeyOfficer("Nalaka Wimalaratne");
+	 CancelLeavefromESSPage.clickBelowCancelLeave();
+	 CancelLeavefromESSPage.catchToastrMessage("Leave cancellation request has been sent for approval");
+	
+	}
+}

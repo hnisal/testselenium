@@ -1,0 +1,205 @@
+package com.aviorsys.HRMS_pageobject;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.AssertJUnit;
+
+public class VerifyESSCancelledleaveinCancellationApprovalPage {
+	
+	WebDriver driver;
+	
+	By button_navigationExpand = By.xpath("//*[@id=\"toggle_nav_btn\"]");
+	By button_confirmApprove = By.xpath("//*[@id=\"wrapper\"]/div[1]/div/ul/li[6]/a/div[1]");
+	By button_leaveCancellation = By.cssSelector("#app_n_conf > li:nth-child(1) > a:nth-child(3)");
+	By header_leaveCancellationInterface = By.cssSelector(".panel-wrapper > div:nth-child(1) > h5:nth-child(1)");
+	By button_bulkCancellationApprove = By.id("confirm-leave");
+	By button_bulkEdit = By.cssSelector(".dx-header-row > td:nth-child(1) > div:nth-child(1) > div:nth-child(2)");
+	By table_records = By.cssSelector(".dx-select-checkboxes-hidden > tbody:nth-child(2)");
+	By button_edit = By.id("view_leave");
+	By header_employeeDetailPannel = By.xpath("/html/body/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div[1]/h6");
+	By header_leaveCancelDetailsPanel = By.xpath("/html/body/div[4]/div[2]/div/div[2]/div/div/div[1]/div/div[1]/div[1]/h6");
+	By detailsbox_leaveCancelDetails = By.xpath("//*[@id=\"recent-employees\"]");
+	By detailsbox_employeeDetails = By.xpath("/html/body/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[2]");
+	By lable_detailName = By.xpath("/html/body/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[1]");
+	By lable_detailEPFno = By.xpath("/html/body/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[2]");
+	By lable_detailDesignation = By.xpath("/html/body/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[3]");
+	By lable_detailComplex = By.xpath("/html/body/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[4]");
+	
+	By textlable_leaveIdx = By.id("att_leave_req_number");
+	By textlable_year = By.id("att_leave_year");
+	By textlable_leaveType = By.id("att_leave_type");
+	By textlable_cancelledDate = By.id("att_leave_cancelDate");
+	By textlable_cancelledTime = By.id("att_leave_cancelTime");
+	By textlable_startDate = By.id("att_leave_start_date");
+	By textlable_startTime = By.id("att_leave_start_time");
+	By textlable_endDate = By.id("att_leave_end_date");
+	By textlable_endTime = By.id("att_leave_end_time");
+	By textlable_noDays = By.id("att_leave_numbr_days");
+	By textlable_cancelReason = By.id("att_leave_reason");
+	
+	By button_reject = By.id("btn-reject");
+	By button_approve = By.id("btn-confirm");
+	By toastmsg_Body = By.className("toast-message");
+
+	
+ public VerifyESSCancelledleaveinCancellationApprovalPage(WebDriver driver) {
+		this.driver = driver;
+		}
+	
+	public void clickNavigationExpand() throws InterruptedException{
+		 Thread.sleep(3000);
+	     driver.findElement(button_navigationExpand).click();
+	     Thread.sleep(4000);
+	     
+	 	}
+	 
+	public void clickLeaveCancellationApprove(){
+		driver.findElement(button_confirmApprove).click();
+		}
+			 
+	public void clickLeaveCancellation() throws InterruptedException{
+		driver.findElement(button_leaveCancellation).click();
+		Thread.sleep(6000);
+		}
+	
+	public void verifyLeaveCancellationApproveInterfaceHeader(String strcancellationapproveHeader) throws InterruptedException{
+		driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
+		String CancellationApproveHeader= driver.findElement(header_leaveCancellationInterface).getText();
+		System.out.println("The Generated Value is :"+CancellationApproveHeader);
+		AssertJUnit.assertEquals(strcancellationapproveHeader,CancellationApproveHeader);
+	}
+	
+	public void getTableValues() throws InterruptedException{
+		Thread.sleep(3000);
+		String Noofrecords= driver.findElement(table_records).getText();
+		System.out.println(Noofrecords);
+	}
+	
+	public void switchToRespectiveEditButton(){
+		//choose 2nd row
+		List<WebElement> elem=driver.findElements(By.id("view_leave"));
+	    elem.get(1).click();
+	}
+	public void verifyLeaveCancelRequestDetailPanelHeader(String strleavecancelRequestDetailPanelHeader) throws InterruptedException{
+		driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
+		String LeaveCancelRequestDetailPanelHeader= driver.findElement(header_leaveCancelDetailsPanel).getText();
+		System.out.println("The Generated Value is :"+LeaveCancelRequestDetailPanelHeader);
+		AssertJUnit.assertEquals(strleavecancelRequestDetailPanelHeader,LeaveCancelRequestDetailPanelHeader);
+	}
+	
+	public void verifyLeaveRequestNo(String strleaveRequestNo) throws InterruptedException{
+		Thread.sleep(2000);
+		String LeaveRequestNo=driver.findElement(textlable_leaveIdx).getAttribute("value");
+		AssertJUnit.assertEquals(strleaveRequestNo,LeaveRequestNo);
+		System.out.println(LeaveRequestNo + " is correct.Assert passed");
+	}
+	
+	public void verifyLeaveYear(String stryear) throws InterruptedException{
+		Thread.sleep(2000);
+		String Year=driver.findElement(textlable_year).getAttribute("value");
+		AssertJUnit.assertEquals(stryear,Year);
+		System.out.println(Year + " is correct.Assert passed");
+	}
+	
+	public void verifyLeaveType(String strleaveType) throws InterruptedException{
+		Thread.sleep(2000);
+		String LeaveType=driver.findElement(textlable_leaveType).getAttribute("Value");
+		AssertJUnit.assertEquals(strleaveType,LeaveType);
+		System.out.println(LeaveType + " is correct.Assert passed");
+	}
+	
+	public void verifyLeaveCancelledDate(String strleavecancelledDate){
+		String LeaveCancelledDate=driver.findElement(textlable_cancelledDate).getText();
+		AssertJUnit.assertEquals(strleavecancelledDate,LeaveCancelledDate);
+		System.out.println(LeaveCancelledDate + " is correct.Assert passed");
+	}
+	
+	public void verifyLeaveCancelledTime(String strleavecancelledTime){
+		String LeaveCancelledTime=driver.findElement(textlable_cancelledTime).getText();
+		AssertJUnit.assertEquals(strleavecancelledTime,LeaveCancelledTime);
+		System.out.println(LeaveCancelledTime + " is correct.Assert passed");
+	}
+	
+	public void verifyLeaveStartDate(String strleaveStartDate){
+		String LeaveStartDate=driver.findElement(textlable_startDate).getText();
+		AssertJUnit.assertEquals(strleaveStartDate,LeaveStartDate);
+		System.out.println(LeaveStartDate + " is correct.Assert passed");
+	}
+	
+	public void verifyLeaveStartTime(String strleaveStartTime){
+		String LeaveRequestNo=driver.findElement(textlable_startTime).getText();
+		AssertJUnit.assertEquals(strleaveStartTime,LeaveRequestNo);
+		System.out.println(LeaveRequestNo + " is correct.Assert passed");
+	}
+	
+	public void verifyLeaveEndDate(String strleaveEndDate){
+		String LeaveEndDate=driver.findElement(textlable_endDate).getText();
+		AssertJUnit.assertEquals(strleaveEndDate,LeaveEndDate);
+		System.out.println(LeaveEndDate + " is correct.Assert passed");
+	}
+	
+	public void verifyLeaveEndTime(String strleaveendTime){
+		String LeaveEndTime=driver.findElement(textlable_endTime).getText();
+		AssertJUnit.assertEquals(strleaveendTime,LeaveEndTime);
+		System.out.println(LeaveEndTime + " is correct.Assert passed");
+	}
+	
+	public void verifyNoofDays(String strnoofDays){
+		String NoofDays=driver.findElement(textlable_noDays).getText();
+		AssertJUnit.assertEquals(strnoofDays,NoofDays);
+		System.out.println(NoofDays + " is correct.Assert passed");
+	}
+	
+	public void verifyReasonforCancellation(String strreasonforCancellation){
+		String ReasonforCancellation=driver.findElement(textlable_cancelReason).getAttribute("value");
+		AssertJUnit.assertEquals(strreasonforCancellation,ReasonforCancellation);
+		System.out.println(ReasonforCancellation + " is correct.Assert passed");
+	}
+	
+	public void verifyEmployeeDetailPanelHeader(String stremployeedetailPanelHeader) throws InterruptedException{
+		driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
+		String EemployeedetailPanelHeader= driver.findElement(header_employeeDetailPannel).getText();
+		System.out.println("                                                       ");
+		System.out.println("The Generated Value is :"+EemployeedetailPanelHeader);
+		AssertJUnit.assertEquals(stremployeedetailPanelHeader,EemployeedetailPanelHeader);
+	}
+	
+	public void getEmployeeDetailsLabelName(String stremployeedetailsFirstLabelName){
+		String EmployeeDetailsFirstLabelName=driver.findElement(lable_detailName).getText();
+		AssertJUnit.assertEquals(stremployeedetailsFirstLabelName,EmployeeDetailsFirstLabelName);
+		System.out.println(EmployeeDetailsFirstLabelName + " is correct.Assert passed");
+	}
+	
+	public void getEmployeeDetailsLabelEPF(String stremployeedetailsSecondLabelEpf){
+		String EmployeeDetailsSecondLabelEPF=driver.findElement(lable_detailEPFno).getText();
+		AssertJUnit.assertEquals(stremployeedetailsSecondLabelEpf,EmployeeDetailsSecondLabelEPF);
+		System.out.println(EmployeeDetailsSecondLabelEPF + " is correct.Assert passed");
+	}
+	
+	public void getEmployeeDetailsLabelDesignation(String stremployeedetailsThirdLabelDesignation){
+		String EmployeeDetailsThirdLabelDesignation=driver.findElement(lable_detailDesignation).getText();
+		AssertJUnit.assertEquals(stremployeedetailsThirdLabelDesignation,EmployeeDetailsThirdLabelDesignation);
+		System.out.println(EmployeeDetailsThirdLabelDesignation + " is correct.Assert passed");
+	}
+	
+	public void getEmployeeDetailsLabelComplex(String stremployeedetailsForthLabelComplex){
+		String EmployeeDetailsForthLabelComplex=driver.findElement(lable_detailComplex).getText();
+		AssertJUnit.assertEquals(stremployeedetailsForthLabelComplex,EmployeeDetailsForthLabelComplex);
+		System.out.println(EmployeeDetailsForthLabelComplex + " is correct.Assert passed");
+	}
+	
+	public void clickApprove(){
+		driver.findElement(button_approve).click();
+		}
+	
+	public void catchToastrMessage(String strtoastmsg){
+		String Toast_Message = driver.findElement(toastmsg_Body).getText();
+		System.out.println("The toast message is : " +Toast_Message);
+		AssertJUnit.assertEquals(strtoastmsg,Toast_Message);
+		}
+	
+}

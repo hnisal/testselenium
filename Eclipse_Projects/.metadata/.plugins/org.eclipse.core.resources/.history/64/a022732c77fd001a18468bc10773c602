@@ -1,0 +1,57 @@
+package com.aviorsys.HRMS_pageobject;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.AssertJUnit;
+
+public class ESSViewCancelledLeavePage {
+	
+	WebDriver driver;
+	
+	By button_navigationExpand = By.xpath("//*[@id=\"toggle_nav_btn\"]");
+	By button_myProfile = By.xpath("//*[@id=\"wrapper\"]/div[1]/div/ul/li[3]/a");
+	By button_viewCancelledLeave = By.xpath("/html/body/div[4]/div[1]/div/ul/li[3]/ul/li/a[3]");
+	By header_viewCancelledLeaveInterface = By.xpath("/html/body/div[4]/div[2]/div/div[2]/div/div[1]/div[1]/h6");
+	By button_increaseNoOfRecords = By.cssSelector("div.dx-page-size:nth-child(3)");
+	
+	public ESSViewCancelledLeavePage(WebDriver driver){
+		this.driver = driver;
+	}
+	
+	public void clickNavigationExpand() throws InterruptedException{
+		 Thread.sleep(5000);
+	        driver.findElement(button_navigationExpand).click();
+	        Thread.sleep(5000);
+	        }
+	 
+	 public void clickTimeandAttendance(){
+	        driver.findElement(button_myProfile).click();
+	        }
+	 
+	 public void clickViewLeaveCancellation() throws InterruptedException{
+	        driver.findElement(button_viewCancelledLeave).click();
+	        Thread.sleep(2000);
+	        }
+	
+	 public void verifyViewLeaveCancellationInterfaceHeader(String strviewcancellationHeader) throws InterruptedException{
+			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
+			String viewcancellationHeader= driver.findElement(header_viewCancelledLeaveInterface).getText();
+			System.out.println("The Generated Value is :"+viewcancellationHeader);
+			AssertJUnit.assertEquals(strviewcancellationHeader,viewcancellationHeader);
+			}
+	
+	 public void clickforIncreaseNoOfdisplayRecords() throws InterruptedException{
+	        driver.findElement(button_increaseNoOfRecords).click();
+	        Thread.sleep(4000);
+	        }
+	 
+	 public void switchToRespectiveEditButton(){
+			//choose 26th row
+			List<WebElement> elem=driver.findElements(By.id("view_leave"));
+		    elem.get(25).click();
+		}
+}

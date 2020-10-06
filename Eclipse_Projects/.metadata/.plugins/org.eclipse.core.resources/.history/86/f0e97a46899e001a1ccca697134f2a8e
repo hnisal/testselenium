@@ -1,0 +1,115 @@
+package com.aviorsys.HRMS_pageobject;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+import org.openqa.selenium.support.ui.Select;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+
+public class PrimaryPage {
+
+	WebDriver driver;
+	PrimaryPage HRMSDashboard;
+	
+	
+	By button_navigationExpand = By.xpath("//*[@id=\"toggle_nav_btn\"]");
+	By button_employeeProfile = By.xpath("/html/body/div[3]/div[1]/div/ul/li[4]/a/div[1]");
+	By button_createNew =By.xpath("//*[@id=\"emp_prof\"]/li/a[1]");
+	By drpdwn_identificationtype =By.xpath("//*[@id=\"s2id_identificationType\"]/a");
+	
+	Select identificationtype = new Select(driver.findElement(By.xpath("//*[@id=\"s2id_identificationType\"]/a")));
+	identificationtype.selectByVisibleText("NIC Number \(Old\)");
+	
+	//By button_identificationType = By.xpath("//*[@id=\"s2id_identificationType\"]/a");
+	//By button_NICOld = By.id("1");
+	By button_NICOld = By.className("NIC Number (Old)");
+	//By button_NICNew = By.xpath("//*[@id=\"select2-result-label-52\"]");
+	//By button_passport = By.xpath("//*[@id=\"select2-result-label-53\"]");
+	
+	By textfield_identificationNumber = By.xpath("//*[@id=\"identificationNumber\"]");
+	By textfield_initials = By.xpath("//*[@id=\"priInitials\"]");
+	
+	By button_titleType = By.xpath("//*[@id=\"s2id_title\"]/a");
+	//By button_titleMr = By.xpath("//*[@id=\"select2-result-label-51\"]");
+	//By button_titleMrs = By.xpath("//*[@id=\"select2-result-label-51\"]");
+	//By button_titleMss = By.xpath("//*[@id=\"select2-result-label-52\"]");
+	//By button_titleMs = By.xpath("//*[@id=\"select2-result-label-53\"]");
+	
+	By textfield_firstName = By.xpath("//*[@id=\"firstName\"]");
+	By textfield_middleName = By.xpath("//*[@id=\"middleName\"]");
+	By textfield_LastName = By.xpath("//*[@id=\"lastName\"]");
+	By textfield_fullName = By.xpath("//*[@id=\"fullName\"]");
+	
+	
+	public PrimaryPage (WebDriver driver){
+        this.driver = driver;
+        }
+	
+	public void clickNavigationExpand() throws InterruptedException{
+		 Thread.sleep(5000);
+	        driver.findElement(button_navigationExpand).click();
+	        Thread.sleep(5000);
+	        }
+	 
+	 public void clickEmployeeProfile(){
+	        driver.findElement(button_employeeProfile).click();
+	        }
+	 
+	 public void clickCreateNew(){
+	        driver.findElement(button_createNew).click();
+	        }
+	 
+	 /*public void clickIdentificationType(){
+		 driver.findElement(button_identificationType).click();
+	 }*/
+	 
+	 public void clickIdentificationType_NICOld(){
+		 driver.findElement(button_NICOld).click();
+	 }
+	 
+	 public void selectIdentificationType(String idtype){
+		 driver.findElement(drpdwn_identificationtype).click();
+		 Select identificationtype = new Select(driver.findElement(drpdwn_identificationtype));
+		 identificationtype.selectByVisibleText(idtype);
+		 //selectByVisibleText(idtype);
+	 }
+	 
+	/* public void clickIdentificationType_NICNew(){
+		 driver.findElement(button_NICNew).click();
+	 }*/
+	 
+	/* public void clickIdentificationType_Passport(){
+		 driver.findElement(button_passport).click();
+	 }*/
+	 
+	 public void enterIdentificationNumber(String strNIColdNo){
+		 driver.findElement(textfield_identificationNumber).sendKeys("strNIColdNo");
+	 }
+	 
+	 public void enterInitials(String strInitials){
+		 driver.findElement(textfield_initials).sendKeys("strInitials");
+	 }
+	
+	 public void enterFirstName(String strFirstName){
+		 driver.findElement(textfield_firstName).sendKeys("strFirstName");
+	 }
+	 
+	 public void enterMiddleName(String strMidName){
+		 driver.findElement(textfield_middleName).sendKeys("strMidName");
+	 }
+	 
+	 public void enterLastName(String strLastName){
+		 driver.findElement(textfield_middleName).sendKeys("strLastName");
+	 }
+	 
+	 public void enterFullName(String strFullName){
+		 driver.findElement(textfield_middleName).sendKeys("strFullName");
+	 }
+}

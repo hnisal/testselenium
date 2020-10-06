@@ -1,0 +1,22 @@
+package com.aviorsys.HRMS_tests;
+
+import java.text.ParseException;
+
+import org.junit.Test;
+
+import com.aviorsys.HRMS_pageobject.ESSViewCancelledLeavePage;
+
+	ESSViewLeaveCancelPage ESSViewLeaveCancelPage;
+
+public class ESSViewCancelledLeaveTest extends BasicTestConfirm {
+
+@Test
+
+	public void test_View_Cancel_LeaveHR() throws InterruptedException{
+		System.out.println("@test_ESS_View Leave Cancellation-start");
+		
+	ESSViewLeaveCancelPage = new ESSViewCancelledLeavePage(driver);
+	
+	
+	}
+}

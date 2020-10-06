@@ -1,0 +1,31 @@
+package com.aviorsys.HRMS_tests;
+
+import org.junit.Test;
+import com.aviorsys.HRMS_pageobject.VerifyESSCancelledleaveinCancellationApprovalPage;
+
+
+public class VerifyESSCancelledleaveinCancellationApprovalTest extends BasicTestApprove {
+	
+	VerifyESSCancelledleaveinCancellationApprovalPage ESSCancelledleaveinCancellationApprovalPage;
+
+@Test
+
+	public void test_a_ESS_Leave_Cancellation_Approval() throws InterruptedException{
+		System.out.println("@Test a - Verify ESS Leave Appeared in Cancellation_Approval");
+		Thread.sleep(2000);
+		
+		//Create ESSLeavecancel Page object
+		ESSCancelledLeaveinCancellationApprovalPage = new VerifyESSCancelledLeaveinCancellationApprovalPage(driver);
+		
+		
+		ESSCancelledleaveinCancellationApprovalPage.clickNavigationExpand();
+		ESSCancelledleaveinCancellationApprovalPage.clickLeaveCancellationApprove();
+		ESSCancelledleaveinCancellationApprovalPage.clickLeaveConfirmation();
+		ESSCancelledleaveinCancellationApprovalPage.verifyLeaveCancellationApproveInterfaceHeader("Leave Cancellation Approval");
+		ESSCancelledleaveinCancellationApprovalPage.getTableValues();
+		ESSCancelledleaveinCancellationApprovalPage.switchToRespectedEditButton();
+		//ESSCancelledleaveinCancellationApprovalPage
+		//ESSCancelledleaveinCancellationApprovalPage
+		
+	}
+}

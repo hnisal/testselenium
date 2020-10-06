@@ -1,0 +1,35 @@
+package com.aviorsys.HRMS_tests;
+
+import org.junit.Test;
+//import com.aviorsys.HRMS_pageobject.VerifyESSCancelledLeaveinCancellationApprovalPage;
+import com.aviorsys.HRMS_pageobject.VerifyESSCancelledleaveinCancellationApprovalPage;
+
+
+public class VerifyESSCancelledleaveinCancellationApprovalTest extends BasicTestApprove {
+	
+	VerifyESSCancelledleaveinCancellationApprovalPage ESSCancelledleaveinCancellationApprovalPage;
+
+@Test
+
+	public void test_a_ESS_Leave_Cancellation_Approval() throws InterruptedException{
+		System.out.println("@Test a - Verify ESS Leave Appeared in Cancellation_Approval");
+		Thread.sleep(2000);
+		
+		//Create ESSLeavecancel Page object
+		ESSCancelledleaveinCancellationApprovalPage = new VerifyESSCancelledleaveinCancellationApprovalPage(driver);
+		
+		
+		ESSCancelledleaveinCancellationApprovalPage.clickNavigationExpand();
+		ESSCancelledleaveinCancellationApprovalPage.clickLeaveCancellationApprove();
+		ESSCancelledleaveinCancellationApprovalPage.clickLeaveCancellation();
+		ESSCancelledleaveinCancellationApprovalPage.verifyLeaveCancellationApproveInterfaceHeader("Leave Cancellation Approval");
+		ESSCancelledleaveinCancellationApprovalPage.getTableValues();
+		ESSCancelledleaveinCancellationApprovalPage.switchToRespectedEditButton();
+		ESSCancelledleaveinCancellationApprovalPage.verifyLeaveCancelRequestDetailPanelHeader("Leave Cancellation Request Details");
+		ESSCancelledleaveinCancellationApprovalPage.getAllDataFromLeaveRequest();
+		ESSCancelledleaveinCancellationApprovalPage.verifyEmployeeDetailPanelHeader("Employee Details");
+		//ESSCancelledleaveinCancellationApprovalPage.getAllEmployeeDetails();
+		ESSCancelledleaveinCancellationApprovalPage.getEmployeeDetailsLabelName("Employee Name : Anuradhika Wijayathilake");
+		//ESSCancelledleaveinCancellationApprovalPage.getEmployeeDetailsName();
+	}
+}

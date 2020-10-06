@@ -1,0 +1,12 @@
+package com.aviorsys.HRMS_pageobject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class ESSViewCancelledLeavePage {
+	WebDriver driver;
+	
+	By button_navigationExpand = By.xpath("//*[@id=\"toggle_nav_btn\"]");
+	By button_myProfile = By.xpath("//*[@id=\"wrapper\"]/div[1]/div/ul/li[3]/a");
+	By button_navigationExpand = By.xpath
+}

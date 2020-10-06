@@ -1,0 +1,20 @@
+package com.aviorsys.HRMS_pageobject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class ESSLeaveCancellationPage {
+	
+	WebDriver driver;
+	
+	By button_navigationExpand = By.xpath("//*[@id=\"toggle_nav_btn\"]");
+	By button_myProfile = By.xpath("//*[@id=\"wrapper\"]/div[1]/div/ul/li[3]/a");
+	By button_cancelLeave = By.xpath("/html/body/div[4]/div[1]/div/ul/li[3]/ul/li/a[2]");
+	By header_cancelLeave = By.cssSelector("div.panel-heading:nth-child(1) > div:nth-child(1) > h6:nth-child(1)");
+	By calendar_fromDate = By.id("dateFrom");
+	By calendar_toDate = By.id("dateTo");
+	By dropdown_leaveStatus = By.cssSelector(".select2-choice");
+	By button_loadCancelledLeave = By.id("btn_loadLeave");
+	By table_leaveRecords = By.cssSelector(".dx-scrollable-content > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(2)");
+	
+}

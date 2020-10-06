@@ -1,0 +1,32 @@
+package com.aviorsys.HRMS_tests;
+
+import org.junit.Test;
+
+import com.aviorsys.HRMS_pageobject.ESSLeaveCancellationPage;
+
+public class ESSLeaveCancellationTest  extends BasicTestConfirm{
+	ESSLeaveCancellationPage CancelLeavefromESSPage;
+
+@Test
+
+public void test_a_ESS_Leave_Cancel() throws InterruptedException{
+	System.out.println("@Test a - Verify ESS Leave Cancel");
+	Thread.sleep(2000);
+	
+	//Create ESSLeavecancel Page object
+	 CancelLeavefromESSPage = new ESSLeaveCancellationPage(driver);
+	 
+	 CancelLeavefromESSPage.clickNavigationExpand();
+	 CancelLeavefromESSPage.clickMyProfile();
+	 CancelLeavefromESSPage.clickCancelLeave();
+	 CancelLeavefromESSPage.verifyLeavecancelationInterfaceHeader("Leave Cancellation");
+	 CancelLeavefromESSPage.enterFromDate("2020-09-01");
+	 CancelLeavefromESSPage.enterToDate("2020-09-30");
+	 CancelLeavefromESSPage.selectLeaveStatus();
+	 CancelLeavefromESSPage.chooseLeaveStatus();
+	 CancelLeavefromESSPage.clickLoad();
+	 CancelLeavefromESSPage
+	 CancelLeavefromESSPage
+	
+	}
+}
